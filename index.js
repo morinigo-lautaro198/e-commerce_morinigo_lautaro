@@ -4,8 +4,7 @@ function insertarauto(){
   const section = document.querySelector("section");
   h1.innerText = "Productos";
   
-  const a = document.querySelector("a");
-  a.innerText = "Ver mas";
+
   
   let array = []
   
@@ -23,4 +22,4 @@ function insertarauto(){
   section.innerHTML = array.join().replaceAll(",", "");
   }
   }
-  insertarauto()
+  insertarauto();
