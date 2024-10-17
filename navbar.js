@@ -1,6 +1,6 @@
 let botones =[
     {texto: "Home", href: "index.html"},
-    {texto: "History", href: "productos.html"},
+    {texto: "History", href: "#"},
     {texto: "Pricing", href: "#"}];
 const header = document.querySelector("header");
 
