@@ -99,18 +99,21 @@ let etiquetas = `
                 <p>Estimated between Tue, Oct 22 and Wed, Nov 6.</p>
                 <p class="bold">25 available</p>
                 <div class="quantity-selector">
-                    <label for="quantity" class="quantity-label">Quantity:</label>
-                    <select id="quantity" class="quantity-dropdown">
-                        <option value="1">1 unit</option>
-                        <option value="2">2 units</option>
-                        <option value="3">3 units</option>
-                        <option value="4">4 units</option>
-                        <option value="5">5 units</option>
-                        <option value="6">6 units</option>
+                
                     </select>
                 </div>
-            <button class="btn primary-btn">Buy it now</button>
-            <button class="btn secondary-btn">Add to cart</button>
+                ${
+                  localStorage.getItem("email")
+                    ? `
+                    <div class="input-group"> 
+                      <button class="btn btn-danger" type="button" onclick="increment()">+</button>
+                      <input type="number" class="form-control" value="0" id="quantity">
+                      <button class="btn btn-danger" type="button" onclick="decrement()">-</button>
+                    </div>
+                    <a href="#" class="btn btn-primary col-12">Agregar al carrito</a>`
+                    : `<a href="./login.html" class="btn btn-primary col-12">Iniciar sesión para comprar</a>`
+                }
+                  </div>
         </div>
     </div>
 </div>`;
@@ -119,3 +122,17 @@ let etiquetas = `
 
 
 main.innerHTML = etiquetas;
+
+const counter = dociment.querySelector("#productos .input-group input")
+
+function decrement() {
+  if (Number(counter.value) > 1) {
+    counter.value = Number(counter.value) - 1
+  }
+}
+
+function increment() {
+  if (Number(counter.value) > 1) {
+    counter.value = Number(counter.value) - 1
+  }
+}

@@ -288,3 +288,7 @@ body {
 .primary-btn:hover, .secondary-btn:hover {
     opacity: 0.9;
 }
+
+.color{
+    color:rgb(255, 255, 255);
+}
