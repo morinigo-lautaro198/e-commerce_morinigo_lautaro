@@ -1,7 +1,5 @@
 let botones = [
-    {texto: "Home", href: "index.html"},
-    {texto: "History", href: "#"},
-    {texto: "Pricing", href: "#"}
+    {texto: "Home ", href: "index.html"},
 ];
 
 const header = document.querySelector("header");
@@ -14,7 +12,9 @@ for (let boton of botones) {
 
 // Verifica si hay un email en localStorage y agrega el <span> o el enlace de inicio de sesion
 menu.push(localStorage.getItem("email") 
-    ? `<span class="color" style="cursor: pointer">${localStorage.getItem("email")}</span> | <span class="color" style="cursor: pointer" onclick="logout()">Cerrar sesión</span>`
+    ? `<span class="color" style="cursor: pointer">|${localStorage.getItem("email")}</span>  | 
+    <a href="cart.html"><img height="25" src="iconos/cart.png" alt="Comprar"/><b id="quantity">${localStorage.getItem("quantity")}</b> </a>
+    | <span class="color" style="cursor: pointer" onclick="logout()">Cerrar sesión</span>`
     : `<a href="login.html" class="text-decoration-none">Iniciar Sesión</a>`
 );
 

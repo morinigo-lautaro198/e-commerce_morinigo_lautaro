@@ -12,9 +12,13 @@ form.addEventListener("submit", (event) => {
     let email = form.elements.email.value
 
     if (sessionAccount.email == email && sessionAccount.password == pass) {
-        window.location.href = "./index.html";
         localStorage.setItem("email",email);
+        localStorage.setItem("cart", JSON.stringify([]))
+        localStorage.setItem("quantity", "0")
+        window.location.href = "./index.html";
     }else{
+        form.elements.email.value = ""
+        form.elements.password.value = ""
         message.innerText = "usuario o contraseña incorrecto "
     }
 })

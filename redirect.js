@@ -1,6 +1,8 @@
 const redirect = () => {
-	if (localStorage.getItem("email")){
-		window.location.href = "./index.html";
+	if (!localStorage.getItem("email")) {
+	  location.href = "index.html"; 
 	}
-}
-redirect()
+  }
+  
+  redirect(); 
+  
