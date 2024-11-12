@@ -131,4 +131,14 @@ const mostrarCards = (lista) => {const cards = lista.map((auto) =>
   </div>`);
 section.innerHTML = cards.join().replaceAll(",", "");}
 
-mostrarCards(autos)
+//mostrarCards(autos)
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("ok")
+    const main = document.querySelector("main");
+  main.remove()
+  },3000)
+})
+
+promise.then(() => mostrarCards(autos))
