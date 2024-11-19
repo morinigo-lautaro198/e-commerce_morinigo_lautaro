@@ -199,3 +199,38 @@ function addToCart(){
       }
     });
 }
+
+function checkout(){
+  const recurso = {
+      user: localStorage.getItem("email"),
+      items: JSON.parse(localStorage.getItem("cart")),
+  };
+
+  fetch("https://67367b22aafa2ef22230a09c.mockapi.io/orders/cart", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(recurso),
+      })
+          .then(response => {
+              if (response.status !== 201) {
+                  console.error("Error:", error);
+                  Swal.fire({
+                      text: "Oops... There was a problem. Please try again later.",
+                      confirmButtonText: "Ok",
+                      confirmButtonColor: "#333",
+                  });
+              } else {
+                  return response.json()
+              }
+          })
+          .then(order => {
+              Swal.fire({
+                  text: `Thank you ${order.user} for your purchase. We have registered your order #${order.id}`,
+                  confirmButtonText: "Ok",
+                  confirmButtonColor: "#333",
+              });
+              clearCart();
+          });
+};
